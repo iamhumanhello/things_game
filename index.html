@@ -6,7 +6,7 @@
         body { margin: 0; overflow: hidden; background-color: #222; color: #eee; font-family: sans-serif; }
         #gameCanvas { background-color: #333; }
         #ui { position: absolute; top: 10px; left: 10px; padding: 10px; background-color: rgba(0, 0, 0, 0.7); border: 1px solid #555; border-radius: 5px; }
-        .button { padding: 8px 12px; margin-right: 5px; cursor: pointer; background-color: #555; color: #eee; border: none; border-radius: 3px; }
+        .button { padding: 8px 12px; margin-right: 5px; margin-bottom: 5px; cursor: pointer; background-color: #555; color: #eee; border: none; border-radius: 3px; }
         .button:hover { background-color: #777; }
     </style>
 </head>
@@ -14,10 +14,12 @@
     <canvas id="gameCanvas"></canvas>
     <div id="ui">
         <div>Energy: <span id="energyDisplay">0</span></div>
-        <button class="button" onclick="buildUnit('worker')">Build Worker (10 Energy)</button>
-        <button class="button" onclick="buildUnit('attacker')">Build Attacker (20 Energy)</button>
-        </div>
+        <div>Units: <span id="unitCountDisplay">0/5</span></div>
+        <button class="button" onclick="handleBuildCommand('barracks')">Build Barracks (${gameSettings.barracksCost} Energy)</button>
+        <button class="button" onclick="handleBuildCommand('house')">Build House (${gameSettings.houseCost} Energy)</button>
+        <button class="button" onclick="handleBuildCommand('generator')">Build Generator (${gameSettings.generatorCost} Energy)</button>
+    </div>
 
-    <script src="main.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
